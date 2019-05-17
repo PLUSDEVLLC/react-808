@@ -1,2 +1,2 @@
 # React 808
-JavaScript 808 Drum Machine built using React.js
+JavaScript 808 Drum Machine built using React.js and hooks
