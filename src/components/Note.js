@@ -1,4 +1,4 @@
-import React, { useContext, memo } from 'react'
+import React, { useContext, useEffect, useState, memo } from 'react'
 import classNames from 'classnames'
 import { Context } from '../hooks/useStore'
 import './Note.css'
@@ -8,11 +8,25 @@ const Note = ({
     stepID,
     isOn,
     sound,
+    isInPlayPosition
 }) => {
     const [state, setState] = useContext(Context)
+    const [playing, setIsPlaying] = useState(false)
+    const shouldAnimate = isInPlayPosition && isOn
+    const shouldPlay = !playing && shouldAnimate
     const noteClassNames = classNames('note', {
-        'on': isOn
+        'on': isOn,
+        'playing': shouldAnimate
     })
+
+    useEffect(() => {
+        if (shouldPlay) {
+            setIsPlaying(true)
+            sound.play()
+        } else if (playing && !isInPlayPosition) {
+            setIsPlaying(false)
+        }
+    }, [isInPlayPosition, playing, shouldPlay, sound])
 
     const noteClicked = e => {
         e.target.classList.toggle('on')
@@ -33,7 +47,7 @@ const Note = ({
                 }
             }
         })
-        sound.play()
+        if (!playing) sound.play()
     }
 
     return (

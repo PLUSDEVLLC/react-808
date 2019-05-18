@@ -8,9 +8,10 @@ const Track = ({
     title,
     noteCount,
     onNotes,
-    soundFilePath
+    soundFilePath,
+    currentStep
 }) => {
-    const [sound, setSound] = useState()
+    const [sound, setSound] = useState({ play: () => { } })
 
     useEffect(() => {
         setSound(new Sound(soundFilePath))
@@ -18,6 +19,7 @@ const Track = ({
 
     const notes = [...Array(noteCount)].map((el, i) => {
         const isOn = onNotes.indexOf(i) !== -1
+        const isInPlayPosition = currentStep === i + 1
         const stepID = i
 
         return (
@@ -26,6 +28,7 @@ const Track = ({
                 trackID={trackID}
                 stepID={stepID}
                 isOn={isOn}
+                isInPlayPosition={isInPlayPosition}
                 sound={sound}
             />
         )

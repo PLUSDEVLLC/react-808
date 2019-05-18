@@ -29,11 +29,11 @@ function App() {
 
     useEffect(() => {
         if (isSequencePlaying) {
-            setCurrentStep(Math.ceil(totalLapsedTime / timePerStep))
+            setCurrentStep(Math.ceil(totalLapsedTime / timePerStep) % totalSteps)
         } else {
             setCurrentStep(null)
         }
-    }, [isSequencePlaying, timePerStep, totalLapsedTime])
+    }, [isSequencePlaying, timePerSequence, timePerStep, totalLapsedTime, totalSteps])
 
     const togglePlayback = () => {
         if (isSequencePlaying) {
@@ -56,8 +56,9 @@ function App() {
                     <>
                         <li>BPM = {BPM}</li>
                         <li>currentStep = {currentStep}</li>
-                        <li>timePerSequence = {timePerSequence}</li>
                         <li>timePerStep = {timePerStep}</li>
+                        <li>timePerSequence = {timePerSequence}</li>
+                        <li>totalLapsedTime = {totalLapsedTime}</li>
                     </>
                 }
             </ul>
@@ -73,6 +74,10 @@ function App() {
         BPM
     }
 
+    const trackListProps = {
+        currentStep
+    }
+
     return (
         <Provider>
             <div>
@@ -80,7 +85,7 @@ function App() {
                 <ToolBar {...toolBarProps} />
                 <button onClick={() => togglePlayback()}>togglePlayback</button><br />
                 <Debug />
-                <TrackList />
+                <TrackList {...trackListProps} />
             </div>
         </Provider>
     )
