@@ -1,5 +1,7 @@
 import React, { useState, useEffect, memo } from 'react'
 import Sound from '../utils/Sound'
+import Note from './Note'
+import './Track.css'
 
 const Track = ({
     trackID,
@@ -19,12 +21,13 @@ const Track = ({
         const stepID = i
 
         return (
-            <div key={i}>
+            <Note
+                key={i}
                 trackID={trackID}
                 stepID={stepID}
-                isOn={String(isOn)}
-                <button onClick={() => sound.play()}>play</button>
-            </div>
+                isOn={isOn}
+                sound={sound}
+            />
         )
     })
 

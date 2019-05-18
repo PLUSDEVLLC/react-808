@@ -1,0 +1,25 @@
+:root {
+    --note-width: 10px;
+    --note-heigh: 10px;
+    --note-border-size: 10px;
+    --color-dark-grey: #ccc;
+    --spacer: 2px;
+}
+
+.note {
+    flex: 0 0 var(--note-width);
+    height: var(--note-height);
+    width: var(--note-width);
+    border: var(--note-border-size) solid var(--color-black);
+    box-sizing: border-box;
+    margin-top: var(--note-margin-vert);
+    margin-bottom: var(--note-margin-vert);
+    margin-left: var(--note-margin-horz);
+    margin-right: var(--note-margin-horz);
+    cursor: pointer;
+    transition: background-color 120ms 0ms ease;
+}
+
+.note.on {
+    background-color: var(--color-dark-grey);
+}
