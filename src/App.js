@@ -3,7 +3,6 @@ import ToolBar from './components/Toolbar'
 import Steps from './components/Steps'
 import TrackList from './components/TrackList'
 import PlayHead from './components/PlayHead'
-import Debug from './components/Debug'
 import { Provider } from './hooks/useStore'
 import useTimer from './hooks/useTimer'
 import useStyles from './hooks/useStyles'
@@ -34,7 +33,7 @@ function App() {
 
     useEffect(() => {
         if (isSequencePlaying) {
-            setCurrentStep(Math.ceil(totalLapsedTime / timePerStep) % totalSteps)
+            setCurrentStep(Math.floor(totalLapsedTime / timePerStep) % totalSteps)
         } else {
             setCurrentStep(null)
         }
@@ -59,14 +58,6 @@ function App() {
         currentStep
     }
 
-    const debugProps = {
-        BPM,
-        currentStep,
-        timePerStep,
-        timePerSequence,
-        totalLapsedTime
-    }
-
     return (
         <Provider>
             <main className="app">
@@ -79,7 +70,6 @@ function App() {
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
                 </div>
-                <Debug {...debugProps} />
             </main >
         </Provider>
     )

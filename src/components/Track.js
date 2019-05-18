@@ -19,7 +19,7 @@ const Track = ({
 
     const notes = [...Array(noteCount)].map((el, i) => {
         const isOn = onNotes.indexOf(i) !== -1
-        const isInPlayPosition = currentStep === i + 1
+        const isInPlayPosition = currentStep === i
         const stepID = i
 
         return (

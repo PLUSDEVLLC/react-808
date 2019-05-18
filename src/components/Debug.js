@@ -1,32 +1,24 @@
 import React, { useState } from 'react'
 import './Debug.css'
 
-const Debug = (props) => {
-    const {
-        enabled,
-        BPM,
-        currentStep,
-        timePerStep,
-        timePerSequence,
-        totalLapsedTime
-    } = props
+const Debug = ({ enabled, ...displayProps }) => {
     const [on, setOn] = useState(enabled)
+
+    const propValues = Object.keys(displayProps).map(prop => (
+        <li key={prop}><dl><dt>{prop} = </dt><dd>{displayProps[prop]};</dd></dl></li>
+    ))
 
     return (
         <ul className="debug">
-            <li><input
+            <li><label><input
                 type="checkbox"
                 onChange={e => setOn(e.target.checked)}
                 value={on}
                 defaultChecked={on}
-            />Debug</li>
+            />Debug</label></li>
             {on &&
                 <>
-                    <li>BPM = {BPM}</li>
-                    <li>currentStep = {currentStep}</li>
-                    <li>timePerStep = {timePerStep}</li>
-                    <li>timePerSequence = {timePerSequence}</li>
-                    <li>totalLapsedTime = {totalLapsedTime}</li>
+                    {propValues}
                 </>
             }
         </ul>

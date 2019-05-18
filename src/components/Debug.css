@@ -1,3 +1,10 @@
 .debug {
     list-style-type: none;
+    font-family: monospace;
+}
+
+.debug dl {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
 }
