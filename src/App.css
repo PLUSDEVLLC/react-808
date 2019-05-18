@@ -11,6 +11,38 @@
 }
 
 
+html {
+    font-size: var(--base-font-size);
+    color: var(--color-fg)
+  }
+
+.app {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: var(--spacer);
+    margin-bottom: var(--spacer);
+    max-width: var(--app-max-width);
+    visibility: var(--app-visibility);
+    background-color: var(--color-bg);
+    padding: 20px;
+}
+
+  /* Header & Toolbar */
+.app_header {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    margin-bottom: calc(var(--spacer) * 1);
+    margin-left: var(--spacer);
+    margin-right: var(--spacer);
+}
+
+.app_title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    flex: 1;
+}
+
 .app_content {
     display: flex;
     flex-direction: column;
