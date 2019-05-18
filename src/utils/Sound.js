@@ -1,11 +1,14 @@
 class Sound {
 
     constructor(path) {
+        const isSafari = !!navigator.userAgent.match(/safari/i) && !navigator.userAgent.match(/chrome/i) && typeof document.body.style.webkitFilter !== "undefined"
         const AudioContext = window.AudioContext || window.webkitAudioContext || window.MozAudioContext
         this.audioContext = new AudioContext()
-        this.isSafariFixed = false
-        this.boundSafariFix = this.safariFix.bind(this)
-        window.addEventListener('click', this.boundSafariFix, false)
+        if (isSafari) {
+            this.isSafariFixed = false
+            this.boundSafariFix = this.safariFix.bind(this)
+            window.addEventListener('click', this.boundSafariFix, false)
+        }
         if (!this.buffer) this.loadSound(path)
     }
 
