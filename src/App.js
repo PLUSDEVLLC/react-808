@@ -37,7 +37,7 @@ function App() {
         } else {
             setCurrentStep(null)
         }
-    }, [isSequencePlaying, timePerSequence, timePerStep, totalLapsedTime, totalSteps])
+    }, [isSequencePlaying, timePerStep, totalLapsedTime, totalSteps])
 
     const toolBarProps = {
         setStartTime,
