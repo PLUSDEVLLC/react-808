@@ -1,11 +1,3 @@
-:root {
-    --note-width: 10px;
-    --note-heigh: 10px;
-    --note-border-size: 10px;
-    --color-dark-grey: #ccc;
-    --spacer: 2px;
-}
-
 .note {
     flex: 0 0 var(--note-width);
     height: var(--note-height);

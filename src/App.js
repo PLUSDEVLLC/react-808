@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import TrackList from './components/TrackList'
+import ToolBar from './components/Toolbar'
 import { Provider } from './hooks/useStore'
 import useTimer from './hooks/useTimer'
+import './App.css'
 
 function App() {
 
@@ -12,7 +14,7 @@ function App() {
     const totalSteps = stepsPerBar * barsPerSequence
     const totalBeats = beatsPerBar * barsPerSequence
 
-    const [debug, setDebug] = useState(false)
+    const [debug, setDebug] = useState(true)
     const [BPM, setBPM] = useState(128)
     const [startTime, setStartTime] = useState(null)
     const [pastLapsedTime, setPastLapse] = useState(0)
@@ -45,21 +47,39 @@ function App() {
     const Debug = () => {
         return (
             <ul>
-                <li>BPM = {BPM}</li>
-                <li>currentStep = {currentStep}</li>
-                <li>timePerSequence = {timePerSequence}</li>
-                <li>timePerStep = {timePerStep}</li>
+                <li><input
+                    type="checkbox"
+                    onChange={e => setDebug(e.target.checked)}
+                    checked={debug && debug}
+                />Debug</li>
+                {debug &&
+                    <>
+                        <li>BPM = {BPM}</li>
+                        <li>currentStep = {currentStep}</li>
+                        <li>timePerSequence = {timePerSequence}</li>
+                        <li>timePerStep = {timePerStep}</li>
+                    </>
+                }
             </ul>
         )
+    }
+
+    const toolBarProps = {
+        setStartTime,
+        setPastLapse,
+        setBPM,
+        isSequencePlaying,
+        startTime,
+        BPM
     }
 
     return (
         <Provider>
             <div>
                 <h1>React 808</h1>
+                <ToolBar {...toolBarProps} />
                 <button onClick={() => togglePlayback()}>togglePlayback</button><br />
-                <input type="checkbox" onClick={e => setDebug(e.target.checked)} />Debug
-                {debug && <Debug />}
+                <Debug />
                 <TrackList />
             </div>
         </Provider>

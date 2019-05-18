@@ -1,0 +1,50 @@
+
+  .toolbar {
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+  }
+
+  .form_element {
+    background: transparent;
+    border: 1px solid var(--color-dark-grey);
+    margin-left: calc(var(--spacer) / 2);
+    height: var(--form-element-height);
+    box-sizing: border-box;
+    font-weight: 800;
+    font-size: 0.9rem;
+    text-align: center;
+    color: var(--color-fg)
+  }
+
+  .button_play_pause, .button_stop {
+    width: var(--button-pause-play-width);
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .button_icon_path {
+    fill: var(--color-fg);
+  }
+
+  .input_bpm {
+    width: var(--input-bpm-width);
+  }
+
+  .label_bpm {
+    margin-left: calc(var(--spacer) / 2);
+    margin-right: var(--spacer);
+  }
+
+  .select_sequence {
+    margin-left: var(--spacer);
+    text-transform: uppercase;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.1' x='0px' y='0px' width='306px' height='306px' viewBox='0 0 306 306'%3E%3Cpolygon points='270.3,58.6 153,175.9 35.7,58.6 0,94.3 153,247.3 306,94.3'/%3E%3C/svg%3E%0A");
+    background-position: 95% 50%;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding: 0 40px 0 10px;
+  }

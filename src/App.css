@@ -1,1 +1,11 @@
-
+:root {
+    --note-width: 10px;
+    --note-heigh: 10px;
+    --note-border-size: 10px;
+    --color-bg: #ccc;
+    --color-fg: #444;
+    --color-dark-grey: #ccc;
+    --spacer: 2px;
+    --button-pause-play-width: 20px;
+    --input-bpm-width: 40px;
+}
