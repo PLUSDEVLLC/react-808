@@ -1,53 +1,45 @@
 :root {
-    --app-max-width: 0;
-    --app-visibility: hidden;
-    --note-width: 10px;
-    --note-heigh: 10px;
-    --note-border-size: 10px;
-    --color-bg: #ccc;
-    --color-fg: #444;
-    --color-dark-grey: #ccc;
-    --spacer: 2px;
-    --button-pause-play-width: 20px;
-    --input-bpm-width: 40px;
+  --app-max-width: 0;
+  --app-visibility: hidden;
 }
 
 html {
-    font-size: var(--base-font-size);
-    color: var(--color-fg)
-  }
+  font-size: var(--base-font-size);
+  color: var(--color-fg)
+}
 
 .app {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: var(--spacer);
-    margin-bottom: var(--spacer);
-    max-width: var(--app-max-width);
-    visibility: var(--app-visibility);
-    background-color: var(--color-bg);
-    padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: var(--spacer);
+  margin-bottom: var(--spacer);
+  max-width: var(--app-max-width);
+  visibility: var(--app-visibility);
+  background-color: var(--color-bg);
+  padding: 20px;
 }
 
 .app_header {
-    display: flex;
-    align-items: center;
-    justify-content: stretch;
-    margin-bottom: calc(var(--spacer) * 1);
-    margin-left: var(--spacer);
-    margin-right: var(--spacer);
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  margin-bottom: calc(var(--spacer) * 1);
+  margin-left: var(--spacer);
+  margin-right: var(--spacer);
 }
 
 .app_title {
-    font-size: 2.2rem;
-    font-weight: 900;
-    flex: 1;
+  font-size: 2.2rem;
+  font-weight: 900;
+  flex: 1;
 }
 
+
 .app_content {
-    display: flex;
-    flex-direction: column;
-    margin-top: var(--spacer);
-    margin-bottom: var(--spacer);
-    position: relative;
-    transform: translateZ(0);
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--spacer);
+  margin-bottom: var(--spacer);
+  position: relative;
+  transform: translateZ(0);
 }
