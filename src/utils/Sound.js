@@ -3,7 +3,27 @@ class Sound {
     constructor(path) {
         const AudioContext = window.AudioContext || window.webkitAudioContext || window.MozAudioContext
         this.audioContext = new AudioContext()
+        this.isSafariFixed = false
+        this.boundSafariFix = this.safariFix.bind(this)
+        window.addEventListener('click', this.boundSafariFix, false)
         if (!this.buffer) this.loadSound(path)
+    }
+
+    safariFix() {
+        console.log('safariFix', this)
+        if (this.isSafariFixed) {
+            window.removeEventListener('click', this.boundSafariFix, false)
+            console.log('removed listener')
+            return
+        }
+        console.log('running')
+        // create empty buffer, connect to speakers and play the file
+        var buffer = this.audioContext.createBuffer(1, 1, 22050)
+        var source = this.audioContext.createBufferSource()
+        source.buffer = buffer
+        source.connect(this.audioContext.destination)
+        source.start(0)
+        this.isSafariFixed = true
     }
 
     async loadSound(path) {
