@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Steps from './components/Steps'
 import TrackList from './components/TrackList'
 import ToolBar from './components/Toolbar'
 import Debug from './components/Debug'
@@ -61,12 +62,17 @@ function App() {
 
     return (
         <Provider>
-            <div>
-                <h1>React 808</h1>
-                <ToolBar {...toolBarProps} />
-                <Debug enabled {...debugProps} />
-                <TrackList {...trackListProps} />
-            </div>
+            <main className="app">
+                <header className="app_header">
+                    <h1 className="app_title">REACT-808</h1>
+                    <ToolBar {...toolBarProps} />
+                </header>
+                <Steps count={totalSteps} />
+                <div className="tracks">
+                    <TrackList {...trackListProps} />
+                </div>
+            </main >
+            <Debug enabled {...debugProps} />
         </Provider>
     )
 }

@@ -1,0 +1,19 @@
+.steps {
+    display: flex;
+    padding-left: var(--left-gutter-size);
+    border-top: 1px solid var(--color-dark-grey);
+    border-bottom: 1px solid var(--color-dark-grey);
+}
+
+.step {
+    display: flex;
+    flex: 0 0 var(--note-width);
+    min-width: var(--note-width);
+    min-height: var(--step-height);
+    margin-left: var(--note-margin-horz);
+    margin-right: var(--note-margin-horz);
+    justify-content: center;
+    align-items: center;
+    font-weight: 900;
+    font-size: 1rem;
+}
