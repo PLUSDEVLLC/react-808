@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import TrackList from './components/TrackList'
 import ToolBar from './components/Toolbar'
+import Debug from './components/Debug'
 import { Provider } from './hooks/useStore'
 import useTimer from './hooks/useTimer'
+import useStyles from './hooks/useStyles'
 import './App.css'
 
 function App() {
@@ -14,12 +16,13 @@ function App() {
     const totalSteps = stepsPerBar * barsPerSequence
     const totalBeats = beatsPerBar * barsPerSequence
 
-    const [debug, setDebug] = useState(true)
     const [BPM, setBPM] = useState(128)
     const [startTime, setStartTime] = useState(null)
     const [pastLapsedTime, setPastLapse] = useState(0)
     const [currentStep, setCurrentStep] = useState(null)
+    const [getNotesAreaWidthInPixels] = useStyles(totalSteps)
 
+    const notesAreaWidthInPixels = getNotesAreaWidthInPixels(totalSteps)
     const timePerSequence = baseBPMPerOneSecond / BPM * 1000 * totalBeats
     const timePerStep = timePerSequence / totalSteps
     const isSequencePlaying = startTime !== null
@@ -35,36 +38,6 @@ function App() {
         }
     }, [isSequencePlaying, timePerSequence, timePerStep, totalLapsedTime, totalSteps])
 
-    const togglePlayback = () => {
-        if (isSequencePlaying) {
-            setPastLapse(l => l + performance.now() - startTime)
-            setStartTime(null)
-        } else {
-            setStartTime(performance.now())
-        }
-    }
-
-    const Debug = () => {
-        return (
-            <ul>
-                <li><input
-                    type="checkbox"
-                    onChange={e => setDebug(e.target.checked)}
-                    checked={debug && debug}
-                />Debug</li>
-                {debug &&
-                    <>
-                        <li>BPM = {BPM}</li>
-                        <li>currentStep = {currentStep}</li>
-                        <li>timePerStep = {timePerStep}</li>
-                        <li>timePerSequence = {timePerSequence}</li>
-                        <li>totalLapsedTime = {totalLapsedTime}</li>
-                    </>
-                }
-            </ul>
-        )
-    }
-
     const toolBarProps = {
         setStartTime,
         setPastLapse,
@@ -78,13 +51,20 @@ function App() {
         currentStep
     }
 
+    const debugProps = {
+        BPM,
+        currentStep,
+        timePerStep,
+        timePerSequence,
+        totalLapsedTime
+    }
+
     return (
         <Provider>
             <div>
                 <h1>React 808</h1>
                 <ToolBar {...toolBarProps} />
-                <button onClick={() => togglePlayback()}>togglePlayback</button><br />
-                <Debug />
+                <Debug enabled {...debugProps} />
                 <TrackList {...trackListProps} />
             </div>
         </Provider>
