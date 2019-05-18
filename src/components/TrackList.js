@@ -1,20 +1,24 @@
 import React, { useContext, memo } from 'react'
 import { Context } from '../hooks/useStore'
 import { soundFiles } from '../constants/config'
+import Track from './Track'
 
 const TrackList = () => {
-    const [{ trackList }] = useContext(Context)
+    const [{ trackList, noteCount }] = useContext(Context)
 
     const content = Object.keys(trackList).map(trackID => {
-        const { soundFile } = trackList[trackID]
+        const { title, onNotes, soundFile } = trackList[trackID]
         const soundFilePath = soundFiles[soundFile]
 
         return (
-            <div key={trackID}>
-                {
-                    soundFilePath
-                }
-            </div>
+            <Track
+                trackID={+trackID}
+                key={title}
+                title={title}
+                noteCount={noteCount}
+                onNotes={onNotes}
+                soundFilePath={soundFilePath}
+            />
         )
     })
 
