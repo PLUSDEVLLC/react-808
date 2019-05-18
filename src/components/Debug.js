@@ -18,7 +18,7 @@ const Debug = (props) => {
                 type="checkbox"
                 onChange={e => setOn(e.target.checked)}
                 value={on}
-                checked={on}
+                defaultChecked={on}
             />Debug</li>
             {on &&
                 <>
