@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import ToolBar from './components/Toolbar'
 import Steps from './components/Steps'
 import TrackList from './components/TrackList'
-import ToolBar from './components/Toolbar'
+import PlayHead from './components/PlayHead'
 import Debug from './components/Debug'
 import { Provider } from './hooks/useStore'
 import useTimer from './hooks/useTimer'
@@ -48,6 +49,12 @@ function App() {
         BPM
     }
 
+    const playHeadProps = {
+        notesAreaWidthInPixels,
+        timePerSequence,
+        totalLapsedTime
+    }
+
     const trackListProps = {
         currentStep
     }
@@ -68,11 +75,12 @@ function App() {
                     <ToolBar {...toolBarProps} />
                 </header>
                 <Steps count={totalSteps} />
-                <div className="tracks">
+                <div className="app_content">
+                    <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
                 </div>
             </main >
-            <Debug enabled {...debugProps} />
+            <Debug {...debugProps} />
         </Provider>
     )
 }

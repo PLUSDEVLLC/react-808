@@ -9,3 +9,13 @@
     --button-pause-play-width: 20px;
     --input-bpm-width: 40px;
 }
+
+
+.app_content {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--spacer);
+    margin-bottom: var(--spacer);
+    position: relative;
+    transform: translateZ(0);
+  }

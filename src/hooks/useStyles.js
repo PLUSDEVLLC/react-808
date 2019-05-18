@@ -17,7 +17,7 @@ const defaults = {
 
     '__grid_unit': 2,
 
-    '__play_position_width': 2,
+    '__play_head_width': 2,
 
     '__form_element_height': 30,
     '__input_bpm_width': 45,
@@ -36,7 +36,7 @@ const defaults = {
 const noteWidthFull = defaults.__note_width + defaults.__note_margin_horz * 2
 const noteHeightFull = defaults.__note_height + defaults.__note_margin_vert * 2
 
-const getNotesAreaWidthInPixels = (totalSteps) => noteWidthFull * totalSteps - (defaults.__play_position_width / 2)
+const getNotesAreaWidthInPixels = (totalSteps) => noteWidthFull * totalSteps - (defaults.__play_head_width / 2)
 
 const setProperty = (key, value) => {
     document.documentElement.style.setProperty(key, value)
@@ -55,8 +55,8 @@ const setStyles = (totalSteps) => {
     setProperty('--number-of-steps', defaults.__number_of_steps)
     setProperty('--aspect-ratio', defaults.__aspect_ratio)
     setProperty('--grid-unit', defaults.__grid_unit + 'px')
-    setProperty('--play-position-width', defaults.__play_position_width + 'px')
-    setProperty('--play-position-height', noteHeightFull * defaults.__number_of_tracks - (defaults.__note_margin_vert * 2) + 'px')
+    setProperty('--play-head-width', defaults.__play_head_width + 'px')
+    setProperty('--play-head-height', noteHeightFull * defaults.__number_of_tracks - (defaults.__note_margin_vert * 2) + 'px')
     setProperty('--spacer', defaults.__grid_unit * 5 + 'px')
     setProperty('--form-element-height', defaults.__form_element_height + 'px')
     setProperty('--button-pause-play-width', defaults.__form_element_height + 'px')
