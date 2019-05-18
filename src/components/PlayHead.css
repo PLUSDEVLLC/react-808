@@ -1,4 +1,3 @@
-/* Play position */
 .play_head {
     position: absolute;
     top: var(--note-margin-vert);

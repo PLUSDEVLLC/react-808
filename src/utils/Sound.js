@@ -10,13 +10,10 @@ class Sound {
     }
 
     safariFix() {
-        console.log('safariFix', this)
         if (this.isSafariFixed) {
             window.removeEventListener('click', this.boundSafariFix, false)
-            console.log('removed listener')
             return
         }
-        console.log('running')
         // create empty buffer, connect to speakers and play the file
         var buffer = this.audioContext.createBuffer(1, 1, 22050)
         var source = this.audioContext.createBufferSource()
