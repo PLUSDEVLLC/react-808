@@ -15,3 +15,7 @@
 .note.on {
     background-color: var(--color-dark-grey);
 }
+
+.note.playing {
+    background-color: var(--color-highlight);
+}
