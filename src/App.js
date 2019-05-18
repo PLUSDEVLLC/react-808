@@ -79,8 +79,8 @@ function App() {
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
                 </div>
+                <Debug {...debugProps} />
             </main >
-            <Debug {...debugProps} />
         </Provider>
     )
 }

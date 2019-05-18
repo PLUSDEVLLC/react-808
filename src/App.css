@@ -1,4 +1,6 @@
 :root {
+    --app-max-width: 0;
+    --app-visibility: hidden;
     --note-width: 10px;
     --note-heigh: 10px;
     --note-border-size: 10px;
@@ -9,7 +11,6 @@
     --button-pause-play-width: 20px;
     --input-bpm-width: 40px;
 }
-
 
 html {
     font-size: var(--base-font-size);
@@ -27,7 +28,6 @@ html {
     padding: 20px;
 }
 
-  /* Header & Toolbar */
 .app_header {
     display: flex;
     align-items: center;
@@ -50,4 +50,4 @@ html {
     margin-bottom: var(--spacer);
     position: relative;
     transform: translateZ(0);
-  }
+}

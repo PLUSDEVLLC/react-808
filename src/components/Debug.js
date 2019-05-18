@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Debug.css'
 
 const Debug = (props) => {
     const {
@@ -12,7 +13,7 @@ const Debug = (props) => {
     const [on, setOn] = useState(enabled)
 
     return (
-        <ul>
+        <ul className="debug">
             <li><input
                 type="checkbox"
                 onChange={e => setOn(e.target.checked)}
