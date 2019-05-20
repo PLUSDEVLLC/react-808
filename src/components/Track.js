@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback, memo } from 'react'
-import Sound from '../utils/Sound'
+import React, { memo } from 'react'
+import useSound from '../hooks/useSound'
 import Note from './Note'
 import './Track.css'
 
@@ -11,14 +11,8 @@ const Track = ({
     onNotes,
     soundFilePath,
 }) => {
-    const [sound, setSound] = useState({ play: () => { } })
-    const play = useCallback(() => sound.play(), [sound])
-
-    useEffect(() => {
-        setSound(new Sound(soundFilePath))
-
-    }, [soundFilePath])
-
+    const [play] = useSound(soundFilePath)
+    
     const notes = [...Array(noteCount)].map((el, i) => {
         const isNoteOn = onNotes.indexOf(i) !== -1
         const isNoteOnCurrentStep = currentStepID === i
