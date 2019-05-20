@@ -4,11 +4,11 @@ import { Context } from '../hooks/useStore'
 import './Note.css'
 
 const Note = ({
-    sound,
     trackID,
     stepID,
     isNoteOn,
-    isNoteOnCurrentStep
+    isNoteOnCurrentStep,
+    play
 }) => {
 
     const { toggleNote } = useContext(Context)
@@ -19,15 +19,15 @@ const Note = ({
 
     useEffect(() => {
         if (isNoteOn && isNoteOnCurrentStep) {
-            sound.play()
+            play()
         }
 
-    }, [isNoteOn, isNoteOnCurrentStep, sound])
+    }, [isNoteOn, isNoteOnCurrentStep, play])
 
     const noteClicked = e => {
         e.target.classList.toggle('on')
         toggleNote({ trackID, stepID })
-        sound.play()
+        play()
     }
 
     return (
