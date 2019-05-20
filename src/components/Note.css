@@ -9,11 +9,11 @@
     margin-left: var(--note-margin-horz);
     margin-right: var(--note-margin-horz);
     cursor: pointer;
-    transition: background-color 120ms 0ms ease;
 }
 
 .note.on {
     background-color: var(--color-dark-grey);
+    transition: background-color 120ms 0 ease;
 }
 
 .note.playing {
