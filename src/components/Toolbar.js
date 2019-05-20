@@ -11,7 +11,7 @@ const ToolBar = ({
     startTime,
     BPM
 }) => {
-    const [{ id: selectedSequenceID }, setState] = useContext(Context)
+    const { sequence: { id: selectedSequenceID }, selectSequence } = useContext(Context)
 
     function togglePlayback() {
         if (isSequencePlaying) {
@@ -29,12 +29,6 @@ const ToolBar = ({
 
     function updateBPM(e) {
         setBPM(e.target.value)
-    }
-
-    function selectSequence(e) {
-        setState({
-            ...sequenceList.find(seq => seq.id === +e.target.value)
-        })
     }
 
     return (
@@ -56,7 +50,7 @@ const ToolBar = ({
             <select
                 className="form_element select_sequence"
                 value={selectedSequenceID}
-                onChange={selectSequence}
+                onChange={e => selectSequence(+e.target.value)}
             >
                 {
                     sequenceList.map(seq => {

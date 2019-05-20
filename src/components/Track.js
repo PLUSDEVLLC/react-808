@@ -5,31 +5,32 @@ import './Track.css'
 
 const Track = ({
     trackID,
+    currentStepID,
     title,
     noteCount,
     onNotes,
     soundFilePath,
-    currentStep
 }) => {
     const [sound, setSound] = useState({ play: () => { } })
 
     useEffect(() => {
         setSound(new Sound(soundFilePath))
+
     }, [soundFilePath])
 
     const notes = [...Array(noteCount)].map((el, i) => {
-        const isOn = onNotes.indexOf(i) !== -1
-        const isInPlayPosition = currentStep === i
+        const isNoteOn = onNotes.indexOf(i) !== -1
+        const isNoteOnCurrentStep = currentStepID === i
         const stepID = i
 
         return (
             <Note
                 key={i}
+                sound={sound}
                 trackID={trackID}
                 stepID={stepID}
-                isOn={isOn}
-                isInPlayPosition={isInPlayPosition}
-                sound={sound}
+                isNoteOn={isNoteOn}
+                isNoteOnCurrentStep={isNoteOnCurrentStep}
             />
         )
     })

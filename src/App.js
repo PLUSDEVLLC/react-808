@@ -20,7 +20,7 @@ function App() {
     const [BPM, setBPM] = useState(128)
     const [startTime, setStartTime] = useState(null)
     const [pastLapsedTime, setPastLapse] = useState(0)
-    const [currentStep, setCurrentStep] = useState(null)
+    const [currentStepID, setCurrentStep] = useState(null)
     const [getNotesAreaWidthInPixels] = useStyles(totalSteps)
 
     const notesAreaWidthInPixels = getNotesAreaWidthInPixels(totalSteps)
@@ -55,7 +55,7 @@ function App() {
     }
 
     const trackListProps = {
-        currentStep
+        currentStepID
     }
 
     return (

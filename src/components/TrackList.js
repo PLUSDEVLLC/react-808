@@ -3,8 +3,8 @@ import { Context } from '../hooks/useStore'
 import { soundFiles } from '../constants/config'
 import Track from './Track'
 
-const TrackList = ({ currentStep }) => {
-    const [{ trackList, noteCount }] = useContext(Context)
+const TrackList = ({ currentStepID }) => {
+    const { sequence: { trackList, noteCount } } = useContext(Context)
 
     const content = Object.keys(trackList).map(trackID => {
         const { title, onNotes, soundFile } = trackList[trackID]
@@ -12,13 +12,13 @@ const TrackList = ({ currentStep }) => {
 
         return (
             <Track
-                trackID={+trackID}
                 key={title}
+                trackID={+trackID}
+                currentStepID={currentStepID}
                 title={title}
                 noteCount={noteCount}
                 onNotes={onNotes}
                 soundFilePath={soundFilePath}
-                currentStep={currentStep}
             />
         )
     })

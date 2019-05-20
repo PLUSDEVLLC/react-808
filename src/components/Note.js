@@ -4,49 +4,33 @@ import { Context } from '../hooks/useStore'
 import './Note.css'
 
 const Note = ({
+    sound,
     trackID,
     stepID,
-    isOn,
-    sound,
-    isInPlayPosition
+    isNoteOn,
+    isNoteOnCurrentStep
 }) => {
-    const [state, setState] = useContext(Context)
+
+    const { toggleNote } = useContext(Context)
     const [playing, setIsPlaying] = useState(false)
-    const shouldAnimate = isInPlayPosition && isOn
-    const shouldPlay = !playing && shouldAnimate
     const noteClassNames = classNames('note', {
-        'on': isOn,
-        'playing': shouldAnimate
+        'on': isNoteOn,
+        'playing': isNoteOn && isNoteOnCurrentStep
     })
 
     useEffect(() => {
-        if (shouldPlay) {
+        if (!playing && isNoteOn && isNoteOnCurrentStep) {
             setIsPlaying(true)
             sound.play()
-        } else if (playing && !isInPlayPosition) {
+        } else if (playing && !isNoteOnCurrentStep) {
             setIsPlaying(false)
         }
-    }, [isInPlayPosition, playing, shouldPlay, sound])
+
+    }, [isNoteOn, isNoteOnCurrentStep, playing, sound])
 
     const noteClicked = e => {
         e.target.classList.toggle('on')
-        let newOnNotes
-        const onNotes = state.trackList[trackID].onNotes
-        if (onNotes.indexOf(stepID) === -1) {
-            newOnNotes = [...onNotes, stepID]
-        } else {
-            newOnNotes = onNotes.filter(col => col !== stepID)
-        }
-        setState({
-            ...state,
-            trackList: {
-                ...state.trackList,
-                [trackID]: {
-                    ...state.trackList[trackID],
-                    onNotes: newOnNotes
-                }
-            }
-        })
+        toggleNote({ trackID, stepID })
         if (!playing) sound.play()
     }
 
