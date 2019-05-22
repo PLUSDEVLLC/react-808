@@ -5,9 +5,8 @@ import Track from './Track'
 
 const TrackList = ({ currentStepID }) => {
     const { sequence: { trackList, noteCount } } = useContext(Context)
-
-    const content = Object.keys(trackList).map(trackID => {
-        const { title, onNotes, soundFile } = trackList[trackID]
+    const content = trackList.map((track, trackID) => {
+        const { title, onNotes, soundFile } = track
         const soundFilePath = soundFiles[soundFile]
 
         return (
