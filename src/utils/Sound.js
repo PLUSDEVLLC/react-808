@@ -39,7 +39,7 @@ class Sound {
         this.buffer = audioBuffer
     }
 
-    async decodeAudioDataAsync(audioContext, arrayBuffer) {
+    decodeAudioDataAsync(audioContext, arrayBuffer) {
         return new Promise((resolve, reject) => {
             audioContext.decodeAudioData(
                 arrayBuffer,
