@@ -39,7 +39,6 @@ html {
   flex: 1;
 }
 
-
 .app_content {
   display: flex;
   flex-direction: column;
@@ -47,4 +46,12 @@ html {
   margin-bottom: var(--spacer);
   position: relative;
   transform: translateZ(0);
+}
+
+.app_footer,
+.app_footer a {
+  margin-top: 4vh;
+  text-align: center;
+  color: var(--color-dark-grey);
+  background: transparent;
 }
