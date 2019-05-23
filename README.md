@@ -29,3 +29,4 @@
 * Audio effects
 * Change Timing signatures
 * Change steps per Bar on grid
+* Showcase user sequences
