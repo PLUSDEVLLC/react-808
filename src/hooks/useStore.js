@@ -14,15 +14,19 @@ const appReducer = (state, action) => {
                 ...sequenceList.find(seq => seq.id === action.value)
             }
         case 'SET_ON_NOTES':
-            return {
-                ...state,
-                trackList: {
-                    ...state.trackList,
-                    [action.trackID]: {
-                        ...state.trackList[action.trackID],
+            let newTrackList = state.trackList.map((track, trackID) => {
+                if (action.trackID === trackID) {
+                    return {
+                        ...track,
                         onNotes: action.value
                     }
+                } else {
+                    return track
                 }
+            })
+            return {
+                ...state,
+                trackList: newTrackList
             }
         default:
             return state
