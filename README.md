@@ -19,8 +19,8 @@
 * Play/Pause/Stop
 * Works in Chrome, FireFox, Safari, iOS
 
-### To Do - wish list
-* Customize UI for handhelf viewports
+### Wish list
+* Customize UI for handheld viewports
 * User authentication
 * Save custom sequences
 * Load custom sequences by either user profile or custom URL
