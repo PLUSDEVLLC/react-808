@@ -14,12 +14,11 @@ html {
   width: var(--app-max-width);
   visibility: var(--app-visibility);
   background-color: var(--color-bg);
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 820px) {
   .app {
-    padding-top: 20px;
     margin-top: var(--spacer);
     margin-bottom: var(--spacer);
   }
