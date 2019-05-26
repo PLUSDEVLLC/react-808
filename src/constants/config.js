@@ -107,6 +107,33 @@ const sequenceList = [
             }
         ]
     },
+    {
+        id: 4,
+        title: 'Transporter',
+        noteCount: 16,
+        trackList: [
+            {
+                title: 'Kick',
+                soundFile: 'kick',
+                onNotes: [0,1,2,3,6,8,10,13,14,15],
+            },
+            {
+                title: 'Snare',
+                soundFile: 'snare',
+                onNotes: [4,12],
+            },
+            {
+                title: 'Open Hat',
+                soundFile: 'hh_open',
+                onNotes: [],
+            },
+            {
+                title: 'Closed Hat',
+                soundFile: 'hh_closed',
+                onNotes: [0,4,8,12],
+            }
+        ]
+    },
 ]
 
 const soundFiles = {
