@@ -1,34 +1,34 @@
 const sequenceList = [
     {
         id: 0,
-        title: 'Sequence 1',
+        title: 'Pulse',
         noteCount: 16,
         trackList: [
             {
                 title: 'Kick',
                 soundFile: 'kick',
-                onNotes: [0, 2, 4, 6, 8, 10, 12],
+                onNotes: [0, 4, 8, 12],
             },
             {
                 title: 'Snare',
                 soundFile: 'snare',
-                onNotes: [2, 4, 10, 12, 15],
+                onNotes: [],
             },
             {
                 title: 'Open Hat',
                 soundFile: 'hh_open',
-                onNotes: [8],
+                onNotes: [],
             },
             {
                 title: 'Closed Hat',
                 soundFile: 'hh_closed',
-                onNotes: [0, 4, 5, 6, 7, 12, 14],
+                onNotes: [],
             }
         ]
     },
     {
         id: 1,
-        title: 'Sequence 2',
+        title: 'Driving thump',
         noteCount: 16,
         trackList: [
             {
@@ -39,29 +39,29 @@ const sequenceList = [
             {
                 title: 'Snare',
                 soundFile: 'snare',
-                onNotes: [0, 4, 9],
+                onNotes: [],
             },
             {
                 title: 'Open Hat',
                 soundFile: 'hh_open',
-                onNotes: [12],
+                onNotes: [],
             },
             {
                 title: 'Closed Hat',
                 soundFile: 'hh_closed',
-                onNotes: [3, 7, 11],
+                onNotes: [],
             }
         ]
     },
     {
         id: 2,
-        title: 'Sequence 3',
+        title: 'Smooth Backbeat',
         noteCount: 16,
         trackList: [
             {
                 title: 'Kick',
                 soundFile: 'kick',
-                onNotes: [0, 4, 8, 12],
+                onNotes: [0, 2, 8, 10, 14],
             },
             {
                 title: 'Snare',
@@ -71,18 +71,18 @@ const sequenceList = [
             {
                 title: 'Open Hat',
                 soundFile: 'hh_open',
-                onNotes: [2, 6, 10, 14],
+                onNotes: [],
             },
             {
                 title: 'Closed Hat',
                 soundFile: 'hh_closed',
-                onNotes: [0, 2, 4, 6, 8, 10, 12, 14],
+                onNotes: [],
             }
         ]
     },
     {
         id: 3,
-        title: 'Sequence 4',
+        title: 'Boom Chuck',
         noteCount: 16,
         trackList: [
             {
@@ -93,7 +93,7 @@ const sequenceList = [
             {
                 title: 'Snare',
                 soundFile: 'snare',
-                onNotes: [],
+                onNotes: [2, 6, 10, 14],
             },
             {
                 title: 'Open Hat',
@@ -106,7 +106,7 @@ const sequenceList = [
                 onNotes: [],
             }
         ]
-    }
+    },
 ]
 
 const soundFiles = {
