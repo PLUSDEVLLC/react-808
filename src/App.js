@@ -11,9 +11,9 @@ import './App.css'
 function App() {
 
     const baseBPMPerOneSecond = 60
-    const stepsPerBar = 8
+    const stepsPerBar = 16
     const beatsPerBar = 4
-    const barsPerSequence = 2
+    const barsPerSequence = 1
     const totalSteps = stepsPerBar * barsPerSequence
     const totalBeats = beatsPerBar * barsPerSequence
 
@@ -70,9 +70,6 @@ function App() {
                     <PlayHead {...playHeadProps} />
                     <TrackList {...trackListProps} />
                 </div>
-                <footer className="app_footer">
-                    Source code on <a href="https://github.com/joeshub/react-808">on Github</a>, Built by <a href="http://seifi.org/">Joe Seifi</a> using React.js
-                </footer>
             </main >
         </Provider>
     )
