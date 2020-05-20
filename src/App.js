@@ -17,7 +17,7 @@ function App() {
     const totalSteps = stepsPerBar * barsPerSequence
     const totalBeats = beatsPerBar * barsPerSequence
 
-    const [BPM, setBPM] = useState(128)
+    const [BPM, setBPM] = useState(120)
     const [startTime, setStartTime] = useState(null)
     const [pastLapsedTime, setPastLapse] = useState(0)
     const [currentStepID, setCurrentStep] = useState(null)
